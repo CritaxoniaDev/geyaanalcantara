@@ -1,181 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Roboto:wght@100;300&display=swap");
-
-        :root {
-            --button: #b3b3b3;
-            --button-color: #0a0a0a;
-            --shadow: #000;
-            --bg: #737373;
-            --header: #7a7a7a;
-            --color: #fafafa;
-            --lit-header: #e6e6e6;
-            --speed: 2s;
-        }
-
-        * {
-            box-sizing: border-box;
-            transform-style: preserve-3d;
-            padding: 0px;
-            margin: 0px;
-        }
-
-        @property --swing-x {
-            initial-value: 0;
-            inherits: false;
-            syntax: '<integer>';
-        }
-
-        @property --swing-y {
-            initial-value: 0;
-            inherits: false;
-            syntax: '<integer>';
-        }
-
-        body {
-            min-height: 100vh;
-            display: flex;
-            font-family: 'Roboto', sans-serif;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg);
-            color: var(--color);
-            perspective: 1200px;
-        }
-
-        a {
-            text-transform: uppercase;
-            text-decoration: none;
-            background: var(--button);
-            color: var(--button-color);
-            padding: 1rem 4rem;
-            border-radius: 4rem;
-            font-size: 0.875rem;
-            letter-spacing: 0.05rem;
-        }
-
-        p {
-            font-weight: 100;
-        }
-
-        h1 {
-            -webkit-animation: swing var(--speed) infinite alternate ease-in-out;
-            animation: swing var(--speed) infinite alternate ease-in-out;
-            font-size: clamp(5rem, 40vmin, 20rem);
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            margin-bottom: 1rem;
-            letter-spacing: 1rem;
-            transform: translate3d(0, 0, 0vmin);
-            --x: calc(50% + (var(--swing-x) * 0.5) * 1%);
-            background: radial-gradient(var(--lit-header), var(--header) 45%) var(--x) 100%/200% 200%;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        h1:after {
-            -webkit-animation: swing var(--speed) infinite alternate ease-in-out;
-            animation: swing var(--speed) infinite alternate ease-in-out;
-            content: "Gian";
-            position: absolute;
-            top: 0;
-            left: 0;
-            color: var(--shadow);
-            filter: blur(1.5vmin);
-            transform: scale(1.05) translate3d(0, 12%, -10vmin) translate(calc((var(--swing-x, 0) * 0.05) * 1%), calc((var(--swing-y) * 0.05) * 1%));
-        }
-
-        .cloak {
-            animation: swing var(--speed) infinite alternate-reverse ease-in-out;
-            height: 100%;
-            width: 100%;
-            transform-origin: 50% 30%;
-            transform: rotate(calc(var(--swing-x) * -0.25deg));
-            background: radial-gradient(40% 40% at 50% 42%, transparent, #000 35%);
-        }
-
-        .cloak__wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            overflow: hidden;
-        }
-
-        .cloak__container {
-            height: 250vmax;
-            width: 250vmax;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .info {
-            text-align: center;
-            line-height: 1.5;
-            max-width: clamp(16rem, 90vmin, 25rem);
-        }
-
-        .info>p {
-            margin-bottom: 3rem;
-        }
-
-        @-webkit-keyframes swing {
-            0% {
-                --swing-x: -100;
-                --swing-y: -100;
-            }
-
-            50% {
-                --swing-y: 0;
-            }
-
-            100% {
-                --swing-y: -100;
-                --swing-x: 100;
-            }
-        }
-
-        @keyframes swing {
-            0% {
-                --swing-x: -100;
-                --swing-y: -100;
-            }
-
-            50% {
-                --swing-y: 0;
-            }
-
-            100% {
-                --swing-y: -100;
-                --swing-x: 100;
-            }
-        }
-    </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 </head>
+<style>
+	@import url("//fonts.googleapis.com/css?family=Nixie+One");
+	@import url("//fonts.googleapis.com/css?family=League+Script");
+	.container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+	}
+	.sign {
+	  -ms-transform: rotate(-3deg);
+	  -webkit-transform: rotate(-3deg);
+	  transform: rotate(-3deg);
+	}
+	body {
+	  margin: 70px;
+	  background: #313131;
+	  font-family: 'Nixie One', Helvetica, Arial, sans-serif;
+	  font-size: 50px;
+	}
+	#title {
+	  font-size: 110px;
+	}
+	#trav {
+	  -webkit-animation: blink 0.01s infinite alternate;
+	  -moz-animation: blink 0.01s infinite alternate;
+	  -o-animation: blink 0.01s infinite alternate;
+	  animation: blink 0.01s infinite alternate;
+	}
+	#fade {
+	  opacity: 0.8;
+	  color: #ebffff;
+	  text-shadow: 2px 2px 1px rgba(0,0,0,0.3), 0 0px 15px #fff, 0 0 10px #38eeff, 0 0 50px #38eeff;
+	  -webkit-animation: fade 3s infinite alternate;
+	  -moz-animation: fade 3s infinite alternate;
+	  -o-animation: fade 3s infinite alternate;
+	  animation: fade 3s infinite alternate;
+	}
+	.neon-blue {
+	  margin: 0 auto;
+	  text-align: center;
+	  color: #ebffff;
+	  text-shadow: 2px 2px 1px rgba(0,0,0,0.3), 0 0px 15px #fff, 0 0 10px #38eeff, 0 0 50px #38eeff;
+	}
+	.neon-purple {
+	  font-family: 'League Script', Helvetica, Arial, sans-serif;
+	  font-size: 50px;
+	  margin: 0 auto;
+	  text-align: center;
+	  color: #ccf;
+	  text-shadow: 2px 2px 1px rgba(0,0,0,0.5), 0 0 20px #fff, 0 0 10px #ffffff, 0 0 50px #ffffff;
+	}
+	.neon-elov {
+	  font-family: 'League Script', Helvetica, Arial, sans-serif;
+	  font-size: 50px;
+	  margin: 0 auto;
+	  text-align: center;
+	  color: #ccf;
+	  text-shadow: 2px 2px 1px rgba(0,0,0,0.5), 0 0 20px #FFFF00, 0 0 10px #FFD700, 0 0 50px #FFD700;
+	}
+	@-moz-keyframes blink {
+	  70% {
+		opacity: 0.7;
+	  }
+	}
+	@-webkit-keyframes blink {
+	  45% {
+		opacity: 0.5;
+	  }
+	}
+	@-o-keyframes blink {
+	  70% {
+		opacity: 0.7;
+	  }
+	}
+	@keyframes blink {
+	  70% {
+		opacity: 0.7;
+	  }
+	}
+	@-moz-keyframes fade {
+	  40% {
+		opacity: 0.8;
+	  }
+	  42% {
+		opacity: 0.1;
+	  }
+	  43% {
+		opacity: 0.8;
+	  }
+	  45% {
+		opacity: 0.1;
+	  }
+	  46% {
+		opacity: 0.8;
+	  }
+	}
+	@-webkit-keyframes fade {
+	  40% {
+		opacity: 0.8;
+	  }
+	  42% {
+		opacity: 0.1;
+	  }
+	  43% {
+		opacity: 0.8;
+	  }
+	  45% {
+		opacity: 0.1;
+	  }
+	  46% {
+		opacity: 0.8;
+	  }
+	}
+	@-o-keyframes fade {
+	  40% {
+		opacity: 0.8;
+	  }
+	  42% {
+		opacity: 0.1;
+	  }
+	  43% {
+		opacity: 0.8;
+	  }
+	  45% {
+		opacity: 0.1;
+	  }
+	  46% {
+		opacity: 0.8;
+	  }
+	}
+	@keyframes fade {
+	  40% {
+		opacity: 0.8;
+	  }
+	  42% {
+		opacity: 0.1;
+	  }
+	  43% {
+		opacity: 0.8;
+	  }
+	  45% {
+		opacity: 0.1;
+	  }
+	  46% {
+		opacity: 0.8;
+	  }
+	}
+	.button {
+	  text-decoration: none;
+	  position: absolute; 
+	  left: 50%; 
+	  width: 800px;
+	  margin-left: -400px;
+	  cursor: pointer;
+	  font-family: 'League Script', Helvetica, Arial, sans-serif;
+	  font-size: 20px;
+	  display: inline-block;
+	  -webkit-box-sizing: border-box;
+	  -moz-box-sizing: border-box;
+	  box-sizing: border-box;
+	  padding: 10px;
+	  border: none;
+	  color: rgba(255,255,255,1);
+	  text-decoration: normal;
+	  text-align: center;
+	  -o-text-overflow: clip;
+	  text-overflow: clip;
+	  white-space: pre;
+	  text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff00de , 0 0 70px #ff00de , 0 0 80px #ff00de , 0 0 100px #ff00de ;
+	  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+	  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+	  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+	  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+	}
+	.button:hover {
+	  text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;
+	}
 
+</style>
 <body>
-    <h1 style="font-size: 210px;">Gian</h1>
-    <div class="cloak__wrapper">
-        <div class="cloak__container">
-            <div class="cloak"></div>
-        </div>
-    </div>
-    <div class="info">
-        <h2>BSIT Software Engineering Student</h2>
-        <p>Literally Tired.
-        </p>
-        <a href="#" target="_blank" rel="noreferrer noopener">UWI NAKO</a>
-    </div>
+	<div class="container">
+		<div class="sign">
+			<div class="neon-blue" id="title">4<span id="fade">0</span>4</div>
+			<div class="neon-blue">Puro nalang Error<br>
+			 <span class="neon-purple" id="trav">HAHAAHAH</span>
+			 <span class="neon-elov">AHAHAHAAH</span></div>
+		 </div>
+	  </div>
+	   <a href="#" target="_blank" class="button">Walang meron dito</a>
 </body>
-
 </html>
